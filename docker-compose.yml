@@ -1,0 +1,20 @@
+version: "3.10"
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: development
+      POSTGRES_USER: development
+      POSTGRES_DB: development
+    ports:
+    - "5432:5432"
+  api:
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      - PORT=8080
+      - DATABASE_URL=db
+    depends_on:
+      - db
