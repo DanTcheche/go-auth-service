@@ -1,9 +1,5 @@
 package main
-
+import "fmt"
 func main() {
-    db, err := connectDB()
-    if err != nil {
-        log.Fatal(err)
-    }
-    defer db.Close()
+    fmt.Println("hello world")
 }
